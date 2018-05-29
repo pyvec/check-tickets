@@ -15,8 +15,8 @@ class CSV(click.File):
 
 
 @click.command()
-@click.argument('tickets', type=CSV())
-@click.argument('waitlists', type=CSV())
+@click.argument('tickets', type=CSV(encoding='utf-8'))
+@click.argument('waitlists', type=CSV(encoding='utf-8'))
 def check_tickets(tickets, waitlists):
     tickets = (
         [parse_row_from_tickets(row) for row in tickets] +
